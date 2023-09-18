@@ -1,0 +1,11 @@
+version: '3'
+services:
+  speee_api:
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    ports:
+      - "8000:8000"
+    working_dir: /api
+    volumes:
+      - .:/api
