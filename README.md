@@ -1,5 +1,3 @@
 # fib
 
-### 
-
-http://u-ktk-fib.com/
+### http://u-ktk-fib.com/
