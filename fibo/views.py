@@ -28,10 +28,20 @@ class FibView(APIView):
         # 例外処理（不適切な型、値）
         # 何も入力していない場合([NoneType])TypeError,数値以外を入力した場合はValueError
         except (TypeError, ValueError):
-            return Response({'error': '数値を入力してください'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {
+                'status': 400,
+                'message': '数値を入力してください',
+                }, 
+                status=status.HTTP_400_BAD_REQUEST)
         # 負の値を入力した場合エラー
         if n < 0:
-            return Response({'error': '0以上の値を入力してください'},status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {
+                'status': 400,
+                'message': '0以上の値を入力してください'
+                },
+                status=status.HTTP_400_BAD_REQUEST)
 
         result = calculate_fib(n)
         return Response({'result': result})
